@@ -12,6 +12,6 @@ module.exports = {
       dayjs(time).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss'),
   },
   build: {
-    dist: '../dist',
+    distDir: '../dist',
   },
 };
