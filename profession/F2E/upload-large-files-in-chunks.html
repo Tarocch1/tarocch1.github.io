@@ -141,8 +141,7 @@
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>上传分片的接口比较简单，将上传的分片数据保存到刚建立的文件夹中，并给文件名添加从 0 开始按顺序排列的后缀。</p>
-<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">uploadStartHandler</span><span class="token punctuation">(</span>c echo<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span>
-	<span class="token keyword">func</span> <span class="token function">uploadChunkHandler</span><span class="token punctuation">(</span>c echo<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">uploadChunkHandler</span><span class="token punctuation">(</span>c echo<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span>
 	path <span class="token operator">:=</span> c<span class="token punctuation">.</span><span class="token function">QueryParam</span><span class="token punctuation">(</span><span class="token string">"path"</span><span class="token punctuation">)</span>
 	id <span class="token operator">:=</span> c<span class="token punctuation">.</span><span class="token function">QueryParam</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span>
 	targetPath<span class="token punctuation">,</span> err <span class="token operator">:=</span> <span class="token function">getTargetPath</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span>
@@ -160,8 +159,7 @@
 	<span class="token punctuation">}</span>
 	<span class="token keyword">return</span> <span class="token function">end</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span> http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"SUCCESS"</span><span class="token punctuation">,</span> <span class="token boolean">nil</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>最后是结束上传的接口，这个接口应该将所有的分片组合起来。这里需要注意的是，由于之前创建了与文件同名的文件夹用于保存分片，所以这里在合成文件的时候，应先在文件后加后缀 <code>.UPLOADING</code>，这样才能正常创建文件，合并完后，将原文件夹删除，再把 <code>.UPLOADING</code> 后缀去掉即可。</p>
 <pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">uploadEndHandler</span><span class="token punctuation">(</span>c echo<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span>
 	<span class="token keyword">var</span> body <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span><span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
@@ -211,7 +209,7 @@
 </div>
     </main>
     <footer>
-      <div class="time">2021-03-07 23:46:59</div>
+      <div class="time">2021-04-04 10:09:54</div>
     </footer>
   </body>
 </html>
