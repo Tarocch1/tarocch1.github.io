@@ -150,8 +150,7 @@ func uploadStartHandler(c echo.Context) error {
 上传分片的接口比较简单，将上传的分片数据保存到刚建立的文件夹中，并给文件名添加从 0 开始按顺序排列的后缀。
 
 ```go {"lineNumbers": true}
-func uploadStartHandler(c echo.Context) error {
-	func uploadChunkHandler(c echo.Context) error {
+func uploadChunkHandler(c echo.Context) error {
 	path := c.QueryParam("path")
 	id := c.QueryParam("id")
 	targetPath, err := getTargetPath(path)
@@ -168,7 +167,6 @@ func uploadStartHandler(c echo.Context) error {
 		return end(c, http.StatusInternalServerError, -1, err.Error(), nil)
 	}
 	return end(c, http.StatusOK, 0, "SUCCESS", nil)
-}
 }
 ```
 
