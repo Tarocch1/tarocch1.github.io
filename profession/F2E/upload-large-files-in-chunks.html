@@ -11,17 +11,34 @@
     
     
     
-  <script type="module" crossorigin src="/assets/index.508766b4.js"></script>
-  <link rel="stylesheet" href="/assets/index.a21b2537.css">
+  <script type="module" crossorigin src="/assets/index.c96d7b60.js"></script>
+  <link rel="stylesheet" href="/assets/index.4d166c70.css">
 </head>
   <body>
-    <main>
-      <div class="wysiwyg"><h1 id="前端大文件分片上传的实现">前端大文件分片上传的实现 <a class="header-anchor" href="#前端大文件分片上传的实现" aria-hidden="true">¶</a></h1>
+    <section class="layout-section">
+      <aside class="layout-aside">
+         
+        <div>
+          <a class="level-h2" href="#前端实现" title="前端实现">
+            前端实现
+          </a>
+        </div>
+          
+        <div>
+          <a class="level-h2" href="#后端实现" title="后端实现">
+            后端实现
+          </a>
+        </div>
+         
+      </aside>
+      <article class="layout-article">
+        <main class="layout-main">
+          <div class="wysiwyg"><h1 id="前端大文件分片上传的实现">前端大文件分片上传的实现 <a class="header-anchor" href="#前端大文件分片上传的实现" aria-hidden="true">¶</a></h1>
 <p>为了方便管理服务器文件，之前用 Go 写了一个简易的文件管理工具。最近 Go 1.16 发布，就想借着 <code>embed</code> 特性，重构一下这个工具，可以将前端做的好看一些，也可以加一些功能。在重构的过程中，想到之前只是听说过但是没实际做过的大文件分片上传，于是决定在这个项目上尝试一下。</p>
 <p>在原理上来说，大文件分片上传这一需求，需要前后端配合实现。前端需要把文件切片，将每一个切片分别上传到服务器，并且需要标记切片的顺序；后端将每一个切片按特定格式保存好，最终将所有切片合成成一个完整的文件。原理并不复杂，下面看具体实现<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。</p>
 <h2 id="前端实现">前端实现 <a class="header-anchor" href="#前端实现" aria-hidden="true">¶</a></h2>
 <p>前端的核心是使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob/slice" target="_blank" rel="noopener noreferrer"><code>Blob.prototype.slice()</code></a> API 将文件切片。为了调用方便，我们定义一个 <code>Uploader</code> 类，构造函数需传入文件等其他信息，在初始化的时候将文件切片。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Uploader</span></span><span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="language-js line-numbers"><code class="language-js"><span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Uploader</span></span><span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">options</span> <span class="token operator">=</span> options<span class="token punctuation">;</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">chunks</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">uploadingChunks</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// 正在上传的分块数量</span>
@@ -44,7 +61,7 @@
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>之后编写一个暴露的 <code>start</code> 函数，让我们可以手动调用开始上传。这里我设计的逻辑是先调一个开始上传的接口，后端这时应该根据文件名信息创建一个用于存放切片的文件夹，之后上传的切片都保存在这个文件夹里。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token class-name">Uploader</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">start</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="language-js line-numbers"><code class="language-js"><span class="token class-name">Uploader</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">start</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token function">startUpload</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">options</span><span class="token punctuation">.</span><span class="token property-access">path</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
     <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>res<span class="token punctuation">.</span><span class="token property-access">erred</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">options</span><span class="token punctuation">.</span><span class="token property-access">thread</span> <span class="token operator">||</span> defaultThread<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -58,7 +75,7 @@
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>接口返回正常后开始上传分片，<code>_uploadChunk</code> 函数将分片指针指向的分片上传到服务器上，获取到分片后，移动分片指针，开始上传，上传完后，继续调用 <code>_uploadChunk</code> 函数上传剩下的分片，如果遇到错误，应该停止。上传过程中监听 <code>progress</code> 事件，从事件参数的 <code>loaded</code> 字段拿到该分片已上传的字节数，方便计算进度。根据线程设置调用若干次该函数开启若干个上传线程。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token class-name">Uploader</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">_uploadChunk</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="language-js line-numbers"><code class="language-js"><span class="token class-name">Uploader</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">_uploadChunk</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">uploadingChunks</span> <span class="token operator">>=</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">options</span><span class="token punctuation">.</span><span class="token property-access">thread</span> <span class="token operator">||</span> defaultThread<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span><span class="token punctuation">;</span>
   <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">curChunk</span> <span class="token operator">>=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">chunks</span><span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">uploadingChunks</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -103,7 +120,7 @@
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>所有分片上传完后，调用服务器接口，通知服务器上传完毕，将所有分片合成成完整的文件。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token class-name">Uploader</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">_end</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="language-js line-numbers"><code class="language-js"><span class="token class-name">Uploader</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">_end</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token function">endUpload</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">options</span><span class="token punctuation">.</span><span class="token property-access">path</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
     <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>res<span class="token punctuation">.</span><span class="token property-access">erred</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">typeof</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">options</span><span class="token punctuation">.</span><span class="token property-access">onSuccess</span> <span class="token operator">===</span> <span class="token string">'function'</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">options</span><span class="token punctuation">.</span><span class="token method function property-access">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -117,7 +134,7 @@
 <h2 id="后端实现">后端实现 <a class="header-anchor" href="#后端实现" aria-hidden="true">¶</a></h2>
 <p>后端我这里使用 Go 编写，主要是三个接口，整体比较简单。</p>
 <p>首先是开始上传的接口，在上传路径目录下建立一个同名文件夹。</p>
-<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">uploadStartHandler</span><span class="token punctuation">(</span>c echo<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span>
+<pre class="language-go line-numbers"><code class="language-go"><span class="token keyword">func</span> <span class="token function">uploadStartHandler</span><span class="token punctuation">(</span>c echo<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span>
 	<span class="token keyword">var</span> body <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span><span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
 	c<span class="token punctuation">.</span><span class="token function">Bind</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>body<span class="token punctuation">)</span>
 	targetPath<span class="token punctuation">,</span> err <span class="token operator">:=</span> <span class="token function">getTargetPath</span><span class="token punctuation">(</span>body<span class="token punctuation">[</span><span class="token string">"path"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -141,7 +158,7 @@
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>上传分片的接口比较简单，将上传的分片数据保存到刚建立的文件夹中，并给文件名添加从 0 开始按顺序排列的后缀。</p>
-<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">uploadChunkHandler</span><span class="token punctuation">(</span>c echo<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span>
+<pre class="language-go line-numbers"><code class="language-go"><span class="token keyword">func</span> <span class="token function">uploadChunkHandler</span><span class="token punctuation">(</span>c echo<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span>
 	path <span class="token operator">:=</span> c<span class="token punctuation">.</span><span class="token function">QueryParam</span><span class="token punctuation">(</span><span class="token string">"path"</span><span class="token punctuation">)</span>
 	id <span class="token operator">:=</span> c<span class="token punctuation">.</span><span class="token function">QueryParam</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span>
 	targetPath<span class="token punctuation">,</span> err <span class="token operator">:=</span> <span class="token function">getTargetPath</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span>
@@ -161,7 +178,7 @@
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>最后是结束上传的接口，这个接口应该将所有的分片组合起来。这里需要注意的是，由于之前创建了与文件同名的文件夹用于保存分片，所以这里在合成文件的时候，应先在文件后加后缀 <code>.UPLOADING</code>，这样才能正常创建文件，合并完后，将原文件夹删除，再把 <code>.UPLOADING</code> 后缀去掉即可。</p>
-<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">uploadEndHandler</span><span class="token punctuation">(</span>c echo<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span>
+<pre class="language-go line-numbers"><code class="language-go"><span class="token keyword">func</span> <span class="token function">uploadEndHandler</span><span class="token punctuation">(</span>c echo<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span>
 	<span class="token keyword">var</span> body <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span><span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
 	c<span class="token punctuation">.</span><span class="token function">Bind</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>body<span class="token punctuation">)</span>
 	targetPath<span class="token punctuation">,</span> err <span class="token operator">:=</span> <span class="token function">getTargetPath</span><span class="token punctuation">(</span>body<span class="token punctuation">[</span><span class="token string">"path"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -207,9 +224,13 @@
 </ol>
 </section>
 </div>
-    </main>
-    <footer>
-      <div class="time">2021-04-04 10:09:54</div>
-    </footer>
+        </main>
+        <footer class="layout-footer">
+          <div class="time">2021-04-04 10:09:54</div>
+        </footer>
+      </article>
+    </section>
+    
+    
   </body>
 </html>
