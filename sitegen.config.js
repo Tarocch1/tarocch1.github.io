@@ -10,6 +10,7 @@ module.exports = {
   markdown: {
     timeFormatter: time =>
       dayjs(time).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss'),
+    mermaid: false,
   },
   build: {
     distDir: '../dist',
