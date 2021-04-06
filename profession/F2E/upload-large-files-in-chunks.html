@@ -12,29 +12,28 @@
     
     
     
-  <script type="module" crossorigin src="/assets/index.631a7816.js"></script>
-  <link rel="stylesheet" href="/assets/index.a4361806.css">
+  <script type="module" crossorigin src="/assets/index.1f256114.js"></script>
+  <link rel="stylesheet" href="/assets/index.1daeb39c.css">
 </head>
   <body>
-    <section class="layout-section">
-      <aside class="layout-aside">
-         
-        <div>
-          <a class="level-h2" href="#前端实现" title="前端实现">
-            前端实现
-          </a>
-        </div>
-          
-        <div>
-          <a class="level-h2" href="#后端实现" title="后端实现">
-            后端实现
-          </a>
-        </div>
-         
-      </aside>
+    <aside class="layout-aside">
+       
+      <div>
+        <a class="level-h2" href="#前端实现" title="前端实现">
+          前端实现
+        </a>
+      </div>
+        
+      <div>
+        <a class="level-h2" href="#后端实现" title="后端实现">
+          后端实现
+        </a>
+      </div>
+       
+    </aside>
+    <main class="layout-main">
       <article class="layout-article">
-        <main class="layout-main">
-          <div class="wysiwyg"><h1 id="前端大文件分片上传的实现">前端大文件分片上传的实现<a class="header-anchor" href="#前端大文件分片上传的实现" aria-hidden="true">¶</a></h1>
+        <div class="wysiwyg"><h1 id="前端大文件分片上传的实现">前端大文件分片上传的实现<a class="header-anchor" href="#前端大文件分片上传的实现" aria-hidden="true">¶</a></h1>
 <p>为了方便管理服务器文件，之前用 Go 写了一个简易的文件管理工具。最近 Go 1.16 发布，就想借着 <code>embed</code> 特性，重构一下这个工具，可以将前端做的好看一些，也可以加一些功能。在重构的过程中，想到之前只是听说过但是没实际做过的大文件分片上传，于是决定在这个项目上尝试一下。</p>
 <p>在原理上来说，大文件分片上传这一需求，需要前后端配合实现。前端需要把文件切片，将每一个切片分别上传到服务器，并且需要标记切片的顺序；后端将每一个切片按特定格式保存好，最终将所有切片合成成一个完整的文件。原理并不复杂，下面看具体实现<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。</p>
 <h2 id="前端实现">前端实现<a class="header-anchor" href="#前端实现" aria-hidden="true">¶</a></h2>
@@ -225,12 +224,11 @@
 </ol>
 </section>
 </div>
-        </main>
-        <footer class="layout-footer">
-          <div class="time">2021-04-04 10:09:54</div>
-        </footer>
       </article>
-    </section>
+      <footer class="layout-footer">
+        <time>2021-04-04 10:09:54</time>
+      </footer>
+    </main>
     
     
   </body>
