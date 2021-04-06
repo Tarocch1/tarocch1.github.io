@@ -11,6 +11,7 @@ module.exports = {
     timeFormatter: time =>
       dayjs(time).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss'),
     mermaid: false,
+    katex: false,
   },
   build: {
     distDir: '../dist',
