@@ -7,26 +7,53 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <title>前端大文件分片上传的实现</title>
     
-  <script type="module" crossorigin src="/assets/index.7dadffbd.js"></script>
-  <link rel="stylesheet" href="/assets/index.96ee9b80.css">
+  <script type="module" crossorigin src="/assets/index.318822f5.js"></script>
+  <link rel="stylesheet" href="/assets/index.8019e72f.css">
 </head>
-  <body>
+  <body class=" has-toc">
+    <header class="layout-header">
+      <div class="aside-button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          role="img"
+          viewBox="0 0 448 512"
+        >
+          <path
+            fill="currentColor"
+            d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"
+          ></path>
+        </svg>
+      </div>
+      <div class="home-link">
+        <a href="/">Tarocch1&#x27;s Home Page</a>
+      </div>
+      <nav>
+        
+      </nav>
+    </header>
     <aside class="layout-aside">
       <nav>
-         
-        <a class="level-h2" href="#前端实现" title="前端实现">
-          前端实现
-        </a>
-          
-        <a class="level-h2" href="#后端实现" title="后端实现">
-          后端实现
-        </a>
-         
+        
       </nav>
+      <hr />
+      <ul>
+        <li>
+          <a class="level-h2" href="#前端实现" title="前端实现">
+            前端实现
+          </a>
+        </li>
+        <li>
+          <a class="level-h2" href="#后端实现" title="后端实现">
+            后端实现
+          </a>
+        </li>
+      </ul>
     </aside>
+    <div class="aside-mask"></div>
     <main class="layout-main" role="main">
       <div class="layout-container">
-        <article class="markdown"><h1 id="前端大文件分片上传的实现">前端大文件分片上传的实现<a class="header-anchor" href="#前端大文件分片上传的实现" aria-hidden="true">¶</a></h1>
+        <article class="layout-article markdown"><h1 id="前端大文件分片上传的实现">前端大文件分片上传的实现<a class="header-anchor" href="#前端大文件分片上传的实现" aria-hidden="true">¶</a></h1>
 <p>为了方便管理服务器文件，之前用 Go 写了一个简易的文件管理工具。最近 Go 1.16 发布，就想借着 <code>embed</code> 特性，重构一下这个工具，可以将前端做的好看一些，也可以加一些功能。在重构的过程中，想到之前只是听说过但是没实际做过的大文件分片上传，于是决定在这个项目上尝试一下。</p>
 <p>在原理上来说，大文件分片上传这一需求，需要前后端配合实现。前端需要把文件切片，将每一个切片分别上传到服务器，并且需要标记切片的顺序；后端将每一个切片按特定格式保存好，最终将所有切片合成成一个完整的文件。原理并不复杂，下面看具体实现<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。</p>
 <h2 id="前端实现">前端实现<a class="header-anchor" href="#前端实现" aria-hidden="true">¶</a></h2>
@@ -208,7 +235,6 @@
 	<span class="token keyword">return</span> <span class="token function">end</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span> http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"SUCCESS"</span><span class="token punctuation">,</span> <span class="token boolean">nil</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><a href="/">返回首页</a></p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
@@ -217,8 +243,8 @@
 </ol>
 </section>
 </article>
-        <footer>
-          <time class="time">2021-04-04 10:09:54</time>
+        <footer class="layout-footer">
+          <time class="time">2021-04-13 10:21:38</time>
            
           <p class="copyright">© 2015-present Tarocch1</p>
         </footer>
