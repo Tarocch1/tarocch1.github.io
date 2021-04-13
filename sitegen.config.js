@@ -17,7 +17,4 @@ module.exports = {
   build: {
     distDir: '../dist',
   },
-  dev: {
-    port: 3100,
-  },
 };
