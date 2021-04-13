@@ -88,5 +88,3 @@ func main() {
 	http.ListenAndServe(":80", nil)
 }
 ```
-
-[返回首页](/)

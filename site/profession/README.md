@@ -8,5 +8,3 @@ title: 专业
 
 - [前端](F2E/index.html)
 - [Golang](Golang/index.html)
-
-[返回首页](/)

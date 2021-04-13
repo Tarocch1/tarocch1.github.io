@@ -9,12 +9,15 @@ module.exports = {
   title: "Tarocch1's Home Page",
   copyright: '© 2015-present Tarocch1',
   markdown: {
-    timeFormatter: time =>
+    timeFormatter: (time) =>
       dayjs(time).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss'),
     mermaid: false,
     katex: false,
   },
   build: {
     distDir: '../dist',
+  },
+  dev: {
+    port: 3100,
   },
 };
