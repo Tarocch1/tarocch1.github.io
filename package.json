@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "sitegen dev site",
+    "start": "sitegen start site",
     "build": "sitegen build site"
   },
   "devDependencies": {
-    "@tarocch1/sitegen": "^0.10.1"
+    "@tarocch1/sitegen": "^0.11.0"
   }
 }

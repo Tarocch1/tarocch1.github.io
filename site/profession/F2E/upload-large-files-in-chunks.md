@@ -12,7 +12,7 @@ title: 前端大文件分片上传的实现
 
 前端的核心是使用 [`Blob.prototype.slice()`](https://developer.mozilla.org/en-US/docs/Web/API/Blob/slice) API 将文件切片。为了调用方便，我们定义一个 `Uploader` 类，构造函数需传入文件等其他信息，在初始化的时候将文件切片。
 
-```js {"lineNumbers": true}
+```js {.line-numbers}
 function Uploader(options) {
   this.options = options;
   this.chunks = [];
@@ -38,7 +38,7 @@ Uploader.prototype._createChunks = function () {
 
 之后编写一个暴露的 `start` 函数，让我们可以手动调用开始上传。这里我设计的逻辑是先调一个开始上传的接口，后端这时应该根据文件名信息创建一个用于存放切片的文件夹，之后上传的切片都保存在这个文件夹里。
 
-```js {"lineNumbers": true}
+```js {.line-numbers}
 Uploader.prototype.start = function () {
   startUpload(this.options.path).then(res => {
     if (!res.erred) {
@@ -55,7 +55,7 @@ Uploader.prototype.start = function () {
 
 接口返回正常后开始上传分片，`_uploadChunk` 函数将分片指针指向的分片上传到服务器上，获取到分片后，移动分片指针，开始上传，上传完后，继续调用 `_uploadChunk` 函数上传剩下的分片，如果遇到错误，应该停止。上传过程中监听 `progress` 事件，从事件参数的 `loaded` 字段拿到该分片已上传的字节数，方便计算进度。根据线程设置调用若干次该函数开启若干个上传线程。
 
-```js {"lineNumbers": true}
+```js {.line-numbers}
 Uploader.prototype._uploadChunk = function () {
   if (this.uploadingChunks >= (this.options.thread || defaultThread)) return;
   if (this.curChunk >= this.chunks.length) {
@@ -103,7 +103,7 @@ Uploader.prototype._onProgress = function () {
 
 所有分片上传完后，调用服务器接口，通知服务器上传完毕，将所有分片合成成完整的文件。
 
-```js {"lineNumbers": true}
+```js {.line-numbers}
 Uploader.prototype._end = function () {
   endUpload(this.options.path).then(res => {
     if (!res.erred) {
@@ -122,7 +122,7 @@ Uploader.prototype._end = function () {
 
 首先是开始上传的接口，在上传路径目录下建立一个同名文件夹。
 
-```go {"lineNumbers": true}
+```go {.line-numbers}
 func uploadStartHandler(c echo.Context) error {
 	var body map[string]interface{}
 	c.Bind(&body)
@@ -149,7 +149,7 @@ func uploadStartHandler(c echo.Context) error {
 
 上传分片的接口比较简单，将上传的分片数据保存到刚建立的文件夹中，并给文件名添加从 0 开始按顺序排列的后缀。
 
-```go {"lineNumbers": true}
+```go {.line-numbers}
 func uploadChunkHandler(c echo.Context) error {
 	path := c.QueryParam("path")
 	id := c.QueryParam("id")
@@ -172,7 +172,7 @@ func uploadChunkHandler(c echo.Context) error {
 
 最后是结束上传的接口，这个接口应该将所有的分片组合起来。这里需要注意的是，由于之前创建了与文件同名的文件夹用于保存分片，所以这里在合成文件的时候，应先在文件后加后缀 `.UPLOADING`，这样才能正常创建文件，合并完后，将原文件夹删除，再把 `.UPLOADING` 后缀去掉即可。
 
-```go {"lineNumbers": true}
+```go {.line-numbers}
 func uploadEndHandler(c echo.Context) error {
 	var body map[string]interface{}
 	c.Bind(&body)
