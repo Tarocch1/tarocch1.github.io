@@ -7,13 +7,14 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <title>前端大文件分片上传的实现</title>
     
-  <script type="module" crossorigin src="/assets/index.377f1166.js"></script>
-  <link rel="stylesheet" href="/assets/index.90f440f9.css">
+    
+  <script type="module" crossorigin src="/assets/index.c16429bc.js"></script>
+  <link rel="stylesheet" href="/assets/index.6d9017be.css">
 </head>
   <body class=" has-toc">
     <header class="layout-header">
       <div class="aside-button">
-        <span class="iconfont">&#xe638;</span>
+        <i data-feather="menu"></i>
       </div>
       <div class="home-link">
         <a href="/">Tarocch1&#x27;s Home Page</a>
@@ -47,7 +48,7 @@
 <p>为了方便管理服务器文件，之前用 Go 写了一个简易的文件管理工具。最近 Go 1.16 发布，就想借着 <code>embed</code> 特性，重构一下这个工具，可以将前端做的好看一些，也可以加一些功能。在重构的过程中，想到之前只是听说过但是没实际做过的大文件分片上传，于是决定在这个项目上尝试一下。</p>
 <p>在原理上来说，大文件分片上传这一需求，需要前后端配合实现。前端需要把文件切片，将每一个切片分别上传到服务器，并且需要标记切片的顺序；后端将每一个切片按特定格式保存好，最终将所有切片合成成一个完整的文件。原理并不复杂，下面看具体实现<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。</p>
 <h2 id="前端实现">前端实现<a class="header-anchor" href="#前端实现" aria-hidden="true">¶</a></h2>
-<p>前端的核心是使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob/slice" target="_blank" rel="noopener noreferrer"><code>Blob.prototype.slice()</code></a> API 将文件切片。为了调用方便，我们定义一个 <code>Uploader</code> 类，构造函数需传入文件等其他信息，在初始化的时候将文件切片。</p>
+<p>前端的核心是使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob/slice" target="_blank" rel="noopener noreferrer">Blob.prototype.slice()</a> API 将文件切片。为了调用方便，我们定义一个 <code>Uploader</code> 类，构造函数需传入文件等其他信息，在初始化的时候将文件切片。</p>
 <pre  class="language-js line-numbers"><code class="language-js"><span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Uploader</span></span><span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">options</span> <span class="token operator">=</span> options<span class="token punctuation">;</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">chunks</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -234,12 +235,11 @@
 </section>
 </article>
         <footer class="layout-footer">
-          <time class="time">2021-04-15 14:03:15</time>
+          <time class="time">2021-04-18 10:38:52</time>
            
           <p class="copyright">© 2015-present Tarocch1</p>
         </footer>
       </div>
     </main>
-    
   </body>
 </html>
