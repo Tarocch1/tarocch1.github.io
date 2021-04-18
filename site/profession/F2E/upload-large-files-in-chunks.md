@@ -10,7 +10,7 @@ title: 前端大文件分片上传的实现
 
 ## 前端实现
 
-前端的核心是使用 [`Blob.prototype.slice()`](https://developer.mozilla.org/en-US/docs/Web/API/Blob/slice) API 将文件切片。为了调用方便，我们定义一个 `Uploader` 类，构造函数需传入文件等其他信息，在初始化的时候将文件切片。
+前端的核心是使用 [Blob.prototype.slice()](https://developer.mozilla.org/en-US/docs/Web/API/Blob/slice) API 将文件切片。为了调用方便，我们定义一个 `Uploader` 类，构造函数需传入文件等其他信息，在初始化的时候将文件切片。
 
 ```js {.line-numbers}
 function Uploader(options) {
