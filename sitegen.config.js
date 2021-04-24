@@ -9,7 +9,7 @@ module.exports = {
   title: "Tarocch1's Home Page",
   copyright: '© 2015-present Tarocch1',
   head: [
-    '<link rel="icon" href="https://cdn.tarocch1.com/favicon.ico" type="image/x-icon">',
+    '<link rel="icon" href="https://cdn.tarocch1.com/images/favicon.png" type="image/png">',
   ].join('\n'),
   markdown: {
     timeFormatter: (time) =>
