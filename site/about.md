@@ -5,7 +5,7 @@ toc: false
 
 # 关于
 
-![Avatar](https://cdn.tarocch1.com/images/avatar.jpg!w200)
+![Avatar](https://cdn.tarocch1.com/images/avatar.png!w200)
 
 ## 基本资料 📋
 
