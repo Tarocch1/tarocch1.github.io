@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>剑指 Offer 10- II. 青蛙跳台阶问题</title>
+    
+    <link rel="icon" href="https://cdn.tarocch1.com/images/favicon.png" type="image/png">
+  <script type="module" crossorigin src="/assets/index.e6a702f0.js"></script>
+  <link rel="stylesheet" href="/assets/index.4ba5ec67.css">
+</head>
+  <body
+    class=""
+  >
+    <header class="layout-header">
+      <div class="aside-button">
+        <i data-feather="menu"></i>
+      </div>
+      <div class="home-link">
+        <a href="/">Tarocch1&#x27;s Home Page</a>
+      </div>
+      <nav>
+        
+      </nav>
+    </header>
+    <aside class="layout-aside">
+      <nav>
+        
+      </nav>
+      <hr />
+      <ul>
+      </ul>
+    </aside>
+    <div class="aside-mask"></div>
+    <main class="layout-main" role="main">
+      <div class="layout-container">
+        <article class="layout-article markdown"><h1 id="剑指-offer-10-ii-青蛙跳台阶问题">剑指 Offer 10- II. 青蛙跳台阶问题<a class="header-anchor" href="#剑指-offer-10-ii-青蛙跳台阶问题" aria-hidden="true">¶</a></h1>
+<p><a href="https://leetcode-cn.com/problems/qing-wa-tiao-tai-jie-wen-ti-lcof/" target="_blank" rel="noopener noreferrer">链接</a></p>
+<pre class="language-js" ><code class="language-js"><span class="token doc-comment comment">/**
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span>number<span class="token punctuation">}</span></span> <span class="token parameter">n</span>
+ * <span class="token keyword">@return</span> <span class="token class-name"><span class="token punctuation">{</span>number<span class="token punctuation">}</span></span>
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">numWays</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> dp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token number">1e9</span> <span class="token operator">+</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword control-flow">return</span> dp<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+</article>
+        <footer class="layout-footer">
+          <time class="time">2021-06-06 19:12:29</time>
+           
+          <p class="copyright">© 2015-present Tarocch1</p>
+        </footer>
+      </div>
+    </main>
+  </body>
+</html>

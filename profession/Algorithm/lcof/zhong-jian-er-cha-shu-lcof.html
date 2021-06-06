@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>剑指 Offer 07. 重建二叉树</title>
+    
+    <link rel="icon" href="https://cdn.tarocch1.com/images/favicon.png" type="image/png">
+  <script type="module" crossorigin src="/assets/index.e6a702f0.js"></script>
+  <link rel="stylesheet" href="/assets/index.4ba5ec67.css">
+</head>
+  <body
+    class=""
+  >
+    <header class="layout-header">
+      <div class="aside-button">
+        <i data-feather="menu"></i>
+      </div>
+      <div class="home-link">
+        <a href="/">Tarocch1&#x27;s Home Page</a>
+      </div>
+      <nav>
+        
+      </nav>
+    </header>
+    <aside class="layout-aside">
+      <nav>
+        
+      </nav>
+      <hr />
+      <ul>
+      </ul>
+    </aside>
+    <div class="aside-mask"></div>
+    <main class="layout-main" role="main">
+      <div class="layout-container">
+        <article class="layout-article markdown"><h1 id="剑指-offer-07-重建二叉树">剑指 Offer 07. 重建二叉树<a class="header-anchor" href="#剑指-offer-07-重建二叉树" aria-hidden="true">¶</a></h1>
+<p><a href="https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/" target="_blank" rel="noopener noreferrer">链接</a></p>
+<pre class="language-js" ><code class="language-js"><span class="token doc-comment comment">/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) <span class="token punctuation">{</span>
+ *   this.val = val;
+ *   this.left = this.right = null;
+ * <span class="token punctuation">}</span>
+ */</span>
+<span class="token doc-comment comment">/**
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span>number<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span> <span class="token parameter">preorder</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span>number<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span> <span class="token parameter">inorder</span>
+ * <span class="token keyword">@return</span> <span class="token class-name"><span class="token punctuation">{</span>TreeNode<span class="token punctuation">}</span></span>
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">buildTree</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">preorder<span class="token punctuation">,</span> inorder</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>preorder<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token keyword null nil">null</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> top <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TreeNode</span><span class="token punctuation">(</span>preorder<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> topIndex <span class="token operator">=</span> inorder<span class="token punctuation">.</span><span class="token method function property-access">findIndex</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> n <span class="token operator">===</span> preorder<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> leftInorder <span class="token operator">=</span> inorder<span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> topIndex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> rightInorder <span class="token operator">=</span> inorder<span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span>topIndex <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> leftPreorder <span class="token operator">=</span> preorder<span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token operator">+</span> leftInorder<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> rightPreorder <span class="token operator">=</span> preorder<span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> leftInorder<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  top<span class="token punctuation">.</span><span class="token property-access">left</span> <span class="token operator">=</span> <span class="token function">buildTree</span><span class="token punctuation">(</span>leftPreorder<span class="token punctuation">,</span> leftInorder<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  top<span class="token punctuation">.</span><span class="token property-access">right</span> <span class="token operator">=</span> <span class="token function">buildTree</span><span class="token punctuation">(</span>rightPreorder<span class="token punctuation">,</span> rightInorder<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword control-flow">return</span> top<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+</article>
+        <footer class="layout-footer">
+          <time class="time">2021-06-06 19:12:29</time>
+           
+          <p class="copyright">© 2015-present Tarocch1</p>
+        </footer>
+      </div>
+    </main>
+  </body>
+</html>
