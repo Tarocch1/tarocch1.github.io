@@ -30,4 +30,5 @@ toc: false
 ## 联系方式 📞
 
 - **Email**: [huiben.fang@gmail.com](mailto:huiben.fang@gmail.com)
+- **Telegram**: [Tarocch1](https://t.me/Tarocch1)
 - **WeChat**: Tarocch1
