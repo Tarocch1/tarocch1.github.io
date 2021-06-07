@@ -24,3 +24,6 @@ title: 剑指 Offer
 - [剑指 Offer 22. 链表中倒数第 k 个节点](lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof.html)
 - [剑指 Offer 24. 反转链表](fan-zhuan-lian-biao-lcof.html)
 - [剑指 Offer 25. 合并两个排序的链表](he-bing-liang-ge-pai-xu-de-lian-biao-lcof.html)
+- [剑指 Offer 26. 树的子结构](shu-de-zi-jie-gou-lcof.html)
+- [剑指 Offer 27. 二叉树的镜像](er-cha-shu-de-jing-xiang-lcof.html)
+- [剑指 Offer 28. 对称的二叉树](dui-cheng-de-er-cha-shu-lcof.html)
