@@ -10,8 +10,8 @@ title: 剑指 Offer 24. 反转链表
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
+ *   this.val = val;
+ *   this.next = null;
  * }
  */
 /**
