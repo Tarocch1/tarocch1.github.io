@@ -7,9 +7,9 @@
     <title>剑指 Offer 12. 矩阵中的路径</title>
     
     <link rel="icon" href="https://cdn.tarocch1.com/images/favicon.png" type="image/png">
-  <script type="module" crossorigin src="/assets/index.e6a702f0.js"></script>
-  <link rel="stylesheet" href="/assets/index.4ba5ec67.css">
-</head>
+    <script type="module" crossorigin src="/assets/index.319a8499.js"></script>
+    <link rel="stylesheet" href="/assets/index.c77d208a.css">
+  </head>
   <body
     class=""
   >
@@ -35,6 +35,9 @@
     <div class="aside-mask"></div>
     <main class="layout-main" role="main">
       <div class="layout-container">
+        <div class="layout-breadcrumb">
+           <div class="breadcrumb"><span><a href="/"><i data-feather="home" width="1em" height="1em"></i></a></span><span class="breadcrumb-divider">/</span><span><a href="/profession/">专业</a></span><span class="breadcrumb-divider">/</span><span><a href="/profession/Algorithm/">算法</a></span><span class="breadcrumb-divider">/</span><span><a href="/profession/Algorithm/lcof/">剑指 Offer</a></span><span class="breadcrumb-divider">/</span></div> 
+        </div>
         <article class="layout-article markdown"><h1 id="剑指-offer-12-矩阵中的路径">剑指 Offer 12. 矩阵中的路径<a class="header-anchor" href="#剑指-offer-12-矩阵中的路径" aria-hidden="true">¶</a></h1>
 <p><a href="https://leetcode-cn.com/problems/ju-zhen-zhong-de-lu-jing-lcof/" target="_blank" rel="noopener noreferrer">链接</a></p>
 <pre class="language-js" ><code class="language-js"><span class="token doc-comment comment">/**
@@ -55,7 +58,7 @@
    * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span>Set<span class="token punctuation">}</span></span> <span class="token parameter">set</span>
    * <span class="token keyword">@return</span> <span class="token class-name"><span class="token punctuation">{</span>boolean<span class="token punctuation">}</span></span>
    */</span>
-  <span class="token keyword">function</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> str<span class="token punctuation">,</span> set</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> str<span class="token punctuation">,</span> <span class="token keyword">set</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
     <span class="token keyword">const</span> next <span class="token operator">=</span> <span class="token punctuation">[</span>
       <span class="token punctuation">[</span>x<span class="token punctuation">,</span> y <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>

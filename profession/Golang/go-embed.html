@@ -7,9 +7,9 @@
     <title>Go embed 简介</title>
     
     <link rel="icon" href="https://cdn.tarocch1.com/images/favicon.png" type="image/png">
-  <script type="module" crossorigin src="/assets/index.e6a702f0.js"></script>
-  <link rel="stylesheet" href="/assets/index.4ba5ec67.css">
-</head>
+    <script type="module" crossorigin src="/assets/index.319a8499.js"></script>
+    <link rel="stylesheet" href="/assets/index.c77d208a.css">
+  </head>
   <body
     class="has-toc"
   >
@@ -65,6 +65,9 @@
     <div class="aside-mask"></div>
     <main class="layout-main" role="main">
       <div class="layout-container">
+        <div class="layout-breadcrumb">
+           <div class="breadcrumb"><span><a href="/"><i data-feather="home" width="1em" height="1em"></i></a></span><span class="breadcrumb-divider">/</span><span><a href="/profession/">专业</a></span><span class="breadcrumb-divider">/</span><span><a href="/profession/Golang/">Golang</a></span><span class="breadcrumb-divider">/</span></div> 
+        </div>
         <article class="layout-article markdown"><h1 id="go-embed-简介">Go embed 简介<a class="header-anchor" href="#go-embed-简介" aria-hidden="true">¶</a></h1>
 <p>在刚刚发布的 Go 1.16 版本更新中，加入了 <code>embed</code> 功能，可以将静态资源文件直接打包到二进制可执行文件中，真正实现单个二进制文件部署。这篇文章主要简单地介绍一下 <code>embed</code> 的用法。</p>
 <h2 id="引入文件">引入文件<a class="header-anchor" href="#引入文件" aria-hidden="true">¶</a></h2>

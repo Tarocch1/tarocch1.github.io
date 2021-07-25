@@ -7,9 +7,9 @@
     <title>前端大文件分片上传的实现</title>
     
     <link rel="icon" href="https://cdn.tarocch1.com/images/favicon.png" type="image/png">
-  <script type="module" crossorigin src="/assets/index.e6a702f0.js"></script>
-  <link rel="stylesheet" href="/assets/index.4ba5ec67.css">
-</head>
+    <script type="module" crossorigin src="/assets/index.319a8499.js"></script>
+    <link rel="stylesheet" href="/assets/index.c77d208a.css">
+  </head>
   <body
     class="has-toc"
   >
@@ -45,6 +45,9 @@
     <div class="aside-mask"></div>
     <main class="layout-main" role="main">
       <div class="layout-container">
+        <div class="layout-breadcrumb">
+           <div class="breadcrumb"><span><a href="/"><i data-feather="home" width="1em" height="1em"></i></a></span><span class="breadcrumb-divider">/</span><span><a href="/profession/">专业</a></span><span class="breadcrumb-divider">/</span><span><a href="/profession/F2E/">前端</a></span><span class="breadcrumb-divider">/</span></div> 
+        </div>
         <article class="layout-article markdown"><h1 id="前端大文件分片上传的实现">前端大文件分片上传的实现<a class="header-anchor" href="#前端大文件分片上传的实现" aria-hidden="true">¶</a></h1>
 <p>为了方便管理服务器文件，之前用 Go 写了一个简易的文件管理工具。最近 Go 1.16 发布，就想借着 <code>embed</code> 特性，重构一下这个工具，可以将前端做的好看一些，也可以加一些功能。在重构的过程中，想到之前只是听说过但是没实际做过的大文件分片上传，于是决定在这个项目上尝试一下。</p>
 <p>在原理上来说，大文件分片上传这一需求，需要前后端配合实现。前端需要把文件切片，将每一个切片分别上传到服务器，并且需要标记切片的顺序；后端将每一个切片按特定格式保存好，最终将所有切片合成成一个完整的文件。原理并不复杂，下面看具体实现<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。</p>
