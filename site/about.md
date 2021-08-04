@@ -26,6 +26,7 @@ toc: false
 ## 工作经历 🔨
 
 - 云天励飞 前端开发 (2019.7 - 2021.6)
+- Shopee Software Development(FE) (2021.7 - 至今)
 
 ## 联系方式 📞
 
