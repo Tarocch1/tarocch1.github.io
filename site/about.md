@@ -9,7 +9,7 @@ toc: false
 
 [![](https://img.shields.io/badge/-huiben.fang@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=fff)](mailto:huiben.fang@gmail.com) [![](https://img.shields.io/badge/-%40Tarocch1-181717?style=flat-square&logo=github)](https://github.com/Tarocch1) [![](https://img.shields.io/badge/-%40Tarocch1-26A5E4?style=flat-square&logo=telegram)](https://t.me/tarocch1) [![](https://img.shields.io/badge/-%40Tarocch1-0084FF?style=flat-square&logo=zhihu&logoColor=fff)](https://www.zhihu.com/people/Tarocch1) [![](https://img.shields.io/website?style=flat-square&up_message=tarocch1.com&url=https%3A%2F%2Fwww.tarocch1.com)](https://www.tarocch1.com)
 
-## 📋 𝗜𝗻𝗳𝗼
+## 📋 𝗕𝗮𝘀𝗶𝗰 𝗜𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻
 
 𝑵𝒂𝒎𝒆: 𝑯𝒖𝒊𝒃𝒆𝒏 𝑭𝒂𝒏𝒈 (房慧犇)
 
