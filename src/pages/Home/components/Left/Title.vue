@@ -61,7 +61,7 @@ const hovered = reactive<{ [key: number]: boolean }>({})
 
 .title {
   @apply my-2 ml-[1.2rem];
-  @apply text-2xl sm:text-3xl lg:text-4xl;
+  @apply text-3xl md:text-4xl;
   @apply font-exo-2;
   @apply text-white;
 
