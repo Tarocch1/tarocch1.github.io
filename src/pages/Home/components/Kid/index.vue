@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import src from "./assets/kid.svg";
+import src from './assets/kid.svg'
 </script>
 
 <style scoped>

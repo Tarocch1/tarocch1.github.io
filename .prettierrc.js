@@ -7,23 +7,23 @@ const config = {
   useTabs: false,
   semi: false,
   singleQuote: true,
-  quoteProps: "as-needed",
+  quoteProps: 'as-needed',
   jsxSingleQuote: false,
-  trailingComma: "all",
+  trailingComma: 'all',
   bracketSpacing: true,
-  objectWrap: "collapse",
+  objectWrap: 'collapse',
   bracketSameLine: false,
-  arrowParens: "always",
+  arrowParens: 'always',
   rangeStart: 0,
   rangeEnd: Infinity,
   requirePragma: false,
   insertPragma: false,
-  proseWrap: "preserve",
-  htmlWhitespaceSensitivity: "ignore",
+  proseWrap: 'preserve',
+  htmlWhitespaceSensitivity: 'ignore',
   vueIndentScriptAndStyle: false,
-  endOfLine: "lf",
-  embeddedLanguageFormatting: "auto",
+  endOfLine: 'lf',
+  embeddedLanguageFormatting: 'auto',
   singleAttributePerLine: false,
-};
+}
 
-export default config;
+export default config
