@@ -29,7 +29,7 @@ const props = defineProps<{ links: { title: string; url: string }[] }>()
 @reference '@/styles/index.css';
 
 .links {
-  @apply py-2 pl-[1.2rem];
+  @apply my-2 ml-[1.2rem];
 
   .link-wrap {
     @apply flex items-center gap-2;

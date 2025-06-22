@@ -45,6 +45,8 @@ const autoScale = () => {
 
 onMounted(() => {
   leftWidth.value = getWidth(leftElement.value)
+  autoScale()
+  // 窗口大小变化时自动调整缩放比例
   window.addEventListener('resize', autoScale)
 })
 onBeforeUnmount(() => {
