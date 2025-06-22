@@ -32,13 +32,13 @@ const links = [
 @reference '@/styles/index.css';
 
 .main {
-  @apply my-8 ml-[2.4rem];
+  @apply tw:my-8 tw:ml-[2.4rem];
 
   .section {
-    @apply mb-8;
+    @apply tw:mb-8;
 
     &:last-of-type {
-      @apply mb-0;
+      @apply tw:mb-0;
     }
   }
 }

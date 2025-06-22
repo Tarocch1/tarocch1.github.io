@@ -29,26 +29,26 @@ const props = defineProps<{ links: { title: string; url: string }[] }>()
 @reference '@/styles/index.css';
 
 .links {
-  @apply my-2 ml-[1.2rem];
+  @apply tw:my-2 tw:ml-[1.2rem];
 
   .link-wrap {
-    @apply flex items-center gap-2;
-    @apply mb-2;
+    @apply tw:flex tw:items-center tw:gap-2;
+    @apply tw:mb-2;
 
     &:last-of-type {
-      @apply mb-0;
+      @apply tw:mb-0;
     }
 
     .link {
-      @apply inline-block;
-      @apply py-1 px-2;
-      @apply border border-yellow-600 rounded-sm;
-      @apply tracking-[2px] font-fira-code text-yellow-600;
-      @apply transition duration-300;
+      @apply tw:inline-block;
+      @apply tw:py-0.5 tw:px-1.5;
+      @apply tw:border tw:border-yellow-600 tw:rounded-sm;
+      @apply tw:tracking-[2px] tw:font-fira-code tw:text-yellow-600;
+      @apply tw:transition tw:duration-300;
 
       &:hover {
-        @apply bg-yellow-600 text-bg;
-        @apply scale-105;
+        @apply tw:bg-yellow-600 tw:text-bg;
+        @apply tw:scale-105;
       }
     }
   }

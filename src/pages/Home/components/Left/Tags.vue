@@ -31,8 +31,8 @@ const ml = function (code: string): string {
 @reference '@/styles/index.css';
 
 .tags {
-  @apply italic font-fira-code;
-  @apply text-neutral-500;
-  @apply select-none;
+  @apply tw:italic tw:font-fira-code;
+  @apply tw:text-neutral-500;
+  @apply tw:select-none;
 }
 </style>

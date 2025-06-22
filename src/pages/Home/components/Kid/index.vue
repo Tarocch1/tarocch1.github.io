@@ -14,12 +14,12 @@ import src from './assets/kid.svg'
 @reference '@/styles/index.css';
 
 .kid-wrap {
-  @apply fixed right-4 bottom-4;
-  @apply w-16 h-16;
+  @apply tw:fixed tw:right-4 tw:bottom-4;
+  @apply tw:w-16 tw:h-16;
 
   .kid {
-    @apply w-full h-full;
-    @apply scheme-normal; /* 让 svg 背景透明 */
+    @apply tw:w-full tw:h-full;
+    @apply tw:scheme-normal; /* 让 svg 背景透明 */
   }
 }
 </style>

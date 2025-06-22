@@ -60,22 +60,22 @@ const hovered = reactive<{ [key: number]: boolean }>({})
 @reference '@/styles/index.css';
 
 .title {
-  @apply my-2 ml-[1.2rem];
-  @apply text-3xl md:text-4xl;
-  @apply font-exo-2;
-  @apply text-white;
+  @apply tw:my-2 tw:ml-[1.2rem];
+  @apply tw:text-3xl tw:md:text-4xl;
+  @apply tw:font-exo-2;
+  @apply tw:text-white;
 
   .char {
-    @apply inline-block;
-    @apply transition-colors duration-300;
+    @apply tw:inline-block;
+    @apply tw:transition-colors tw:duration-300;
 
     &:hover {
-      @apply text-yellow-500;
+      @apply tw:text-yellow-500;
     }
   }
 
   .hide {
-    @apply invisible;
+    @apply tw:invisible;
   }
 }
 </style>

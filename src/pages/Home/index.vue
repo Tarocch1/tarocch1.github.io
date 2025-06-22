@@ -58,11 +58,11 @@ onBeforeUnmount(() => {
 @reference '@/styles/index.css';
 
 .container {
-  @apply flex;
-  @apply py-12 px-6;
+  @apply tw:flex;
+  @apply tw:py-12 tw:px-6;
 
   & > .left {
-    @apply grow-0 shrink-0;
+    @apply tw:grow-0 tw:shrink-0;
   }
 }
 </style>

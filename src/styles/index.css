@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import 'tailwindcss' prefix(tw);
 @import './base.css';
 @import './fonts/index.css';
 
