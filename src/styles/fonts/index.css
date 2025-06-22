@@ -1,0 +1,23 @@
+@utility font-exo-2 {
+  font-family: 'Exo2', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+@utility font-fira-code {
+  font-family: 'FiraCode', monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Exo2';
+    src: url('./Exo2-VariableFont_wght.ttf');
+  }
+
+  @font-face {
+    font-family: 'FiraCode';
+    src: url('./FiraCode-VF.ttf');
+  }
+}

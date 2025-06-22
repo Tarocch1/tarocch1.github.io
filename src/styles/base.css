@@ -1,0 +1,14 @@
+@layer base {
+  html,
+  body {
+    @apply h-full;
+  }
+
+  html {
+    @apply scheme-dark;
+  }
+
+  body {
+    @apply bg-bg;
+  }
+}
