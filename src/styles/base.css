@@ -4,11 +4,11 @@
     @apply h-full;
   }
 
-  html {
-    @apply scheme-dark;
-  }
-
   body {
     @apply bg-bg;
+  }
+
+  :root {
+    @apply scheme-dark;
   }
 }
