@@ -3,6 +3,10 @@
     <div ref="left" class="left" :style="leftScaleStyle">
       <Left />
     </div>
+
+    <div class="right">
+      <Right />
+    </div>
   </div>
 
   <Kid />
@@ -12,6 +16,7 @@
 import { ref, computed, onMounted, onBeforeUnmount, useTemplateRef } from 'vue'
 
 import Left from './components/Left/index.vue'
+import Right from './components/Right/index.vue'
 import Kid from './components/Kid/index.vue'
 
 const leftElement = useTemplateRef('left')
@@ -58,11 +63,16 @@ onBeforeUnmount(() => {
 @reference '@/styles/index.css';
 
 .container {
-  @apply tw:flex;
+  @apply tw:flex tw:gap-4;
   @apply tw:py-12 tw:px-6;
 
   & > .left {
     @apply tw:grow-0 tw:shrink-0;
+  }
+
+  & > .right {
+    @apply tw:hidden tw:lg:block;
+    @apply tw:grow tw:shrink;
   }
 }
 </style>
