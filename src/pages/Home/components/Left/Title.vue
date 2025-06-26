@@ -34,9 +34,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, watch } from 'vue'
 
 import Tags from './Tags.vue'
+import { TITLE_ALL_APPEARED } from '../../utils/event'
 
 const props = defineProps<{ title: string }>()
 
@@ -44,6 +45,12 @@ const props = defineProps<{ title: string }>()
 const appeared = ref(0)
 // 计算是否所有字符都已出现
 const allAppeared = computed(() => appeared.value === [...props.title].length)
+
+watch(allAppeared, () => {
+  if (allAppeared.value) {
+    document.dispatchEvent(new Event(TITLE_ALL_APPEARED))
+  }
+})
 
 // 记录鼠标悬停状态
 const hovered = reactive<{ [key: number]: boolean }>({})
