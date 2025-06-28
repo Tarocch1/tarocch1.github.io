@@ -25,10 +25,10 @@ jobs:
           node-version: "lts/*"
       - id: install_dependencies
         name: Install dependencies
-        run: npm ci
+        run: pnpm i
       - id: build
         name: Build
-        run: npm run build
+        run: pnpm run build
       - id: deployment
         name: Upload artifact
         uses: actions/upload-pages-artifact@v3
