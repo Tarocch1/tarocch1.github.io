@@ -29,15 +29,10 @@ const props = defineProps<{ links: { title: string; url: string }[] }>()
 @reference '@/styles/index.css';
 
 .links {
-  @apply tw:my-2 tw:ml-[1.2rem];
+  @apply tw:my-2 tw:ml-[1.2rem] tw:space-y-2;
 
   .link-wrap {
     @apply tw:flex tw:items-center tw:gap-2;
-    @apply tw:mb-2;
-
-    &:last-of-type {
-      @apply tw:mb-0;
-    }
 
     .link {
       @apply tw:inline-block;

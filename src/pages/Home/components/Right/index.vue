@@ -76,7 +76,7 @@ onMounted(() => {
 @reference '@/styles/index.css';
 
 .wrap {
-  @apply tw:mx-auto;
+  @apply tw:mx-auto tw:space-y-2;
   @apply tw:w-[512px];
 }
 </style>

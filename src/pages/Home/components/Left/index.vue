@@ -2,11 +2,11 @@
   <Tags :codes="['<html>', '  <body>']" />
 
   <div class="main">
-    <div class="section">
+    <div>
       <Title :title="title" />
     </div>
 
-    <div class="section">
+    <div>
       <Links :links="links" />
     </div>
   </div>
@@ -32,14 +32,6 @@ const links = [
 @reference '@/styles/index.css';
 
 .main {
-  @apply tw:my-8 tw:ml-[2.4rem];
-
-  .section {
-    @apply tw:mb-8;
-
-    &:last-of-type {
-      @apply tw:mb-0;
-    }
-  }
+  @apply tw:my-8 tw:ml-[2.4rem] tw:space-y-8;
 }
 </style>

@@ -28,7 +28,7 @@ const loaded = () => {
 
 .codes {
   @apply tw:relative;
-  @apply tw:mb-2 tw:ml-4;
+  @apply tw:ml-4;
   @apply tw:whitespace-pre;
   @apply tw:font-fira-code;
   @apply tw:text-neutral-300;
