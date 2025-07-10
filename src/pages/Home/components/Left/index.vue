@@ -23,7 +23,7 @@ const title = "Hi 👋,\nI'm Tarocch1,\nweb developer."
 
 const links = [
   { title: 'GitHub', url: 'https://github.com/Tarocch1' },
-  { title: 'Telegram', url: 'https://t.me/tarocch1' },
+  { title: 'Telegram', url: 'https://t.me/Tarocch1' },
   { title: 'huiben.fang@gmail.com', url: 'mailto:huiben.fang@gmail.com' },
 ]
 </script>
