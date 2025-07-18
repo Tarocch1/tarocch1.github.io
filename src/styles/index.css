@@ -1,6 +1,6 @@
 @import 'tailwindcss' prefix(tw);
 @import './base.css';
-@import './fonts/index.css';
+@import './font.css';
 
 @theme inline {
   --color-bg: var(--color-neutral-800);

@@ -38,7 +38,7 @@ const props = defineProps<{ links: { title: string; url: string }[] }>()
       @apply tw:inline-block;
       @apply tw:py-0.5 tw:px-1.5;
       @apply tw:border tw:border-yellow-600 tw:rounded-sm;
-      @apply tw:tracking-[2px] tw:font-fira-code tw:text-yellow-600;
+      @apply tw:font-maple-mono tw:text-yellow-600;
       @apply tw:transition tw:duration-300;
 
       &:hover {

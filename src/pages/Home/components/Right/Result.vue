@@ -30,7 +30,7 @@ const loaded = () => {
   @apply tw:relative;
   @apply tw:ml-4;
   @apply tw:whitespace-pre;
-  @apply tw:font-fira-code;
+  @apply tw:font-maple-mono;
   @apply tw:text-neutral-300;
 
   &::before {
