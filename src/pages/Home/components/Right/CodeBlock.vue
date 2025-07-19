@@ -42,7 +42,7 @@ const splitWithSpaces = (str: string) => {
 
   let buffer = ''
   for (let i = 0; i < chars.length; i++) {
-    let char = chars[i]
+    const char = chars[i]
     buffer += char
     if (char !== ' ') {
       if (i === lastNonSpaceIndex) {

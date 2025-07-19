@@ -27,6 +27,7 @@ const cur = ref(0)
 // 已经渲染的数据
 const dataToRender = ref<Data[]>([])
 // 渲染所需的上下文
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ctx = shallowRef<Record<string, any>>({})
 
 /**

@@ -4,29 +4,33 @@ import * as prettierPluginBabel from 'prettier/plugins/babel'
 import * as prettierPluginEstree from 'prettier/plugins/estree'
 
 const defaultConfig: Config = {
-  printWidth: 50,
+  printWidth: 80,
   tabWidth: 2,
   useTabs: false,
   semi: false,
   singleQuote: true,
-  quoteProps: 'as-needed',
   jsxSingleQuote: false,
   trailingComma: 'all',
   bracketSpacing: true,
   objectWrap: 'collapse',
   bracketSameLine: false,
-  arrowParens: 'always',
   rangeStart: 0,
   rangeEnd: Infinity,
   requirePragma: false,
   insertPragma: false,
+  checkIgnorePragma: true,
   proseWrap: 'preserve',
+  arrowParens: 'always',
   htmlWhitespaceSensitivity: 'ignore',
-  vueIndentScriptAndStyle: false,
   endOfLine: 'lf',
+  quoteProps: 'as-needed',
+  vueIndentScriptAndStyle: false,
   embeddedLanguageFormatting: 'auto',
   singleAttributePerLine: false,
+  experimentalOperatorPosition: 'end',
+  experimentalTernaries: false,
   parser: 'babel',
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   plugins: [prettierPluginBabel, prettierPluginEstree as any],
 }
 

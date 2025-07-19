@@ -14,12 +14,14 @@ export type Data =
   | {
       component: 'CodeBlock'
       content: string
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       fn?: (ctx: Record<string, any>) => string | void
       prettier?: Config | false
     }
   | {
       component: 'Result'
       content: string
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       fn?: (ctx: Record<string, any>) => string | void
       prettier?: Config | false
     }
