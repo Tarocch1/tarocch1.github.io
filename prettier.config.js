@@ -1,1 +1,1 @@
-export { PrettierRules as default } from '@tarocch1/eslint-config'
+export { PrettierOptions as default } from '@tarocch1/eslint-config/prettier'
