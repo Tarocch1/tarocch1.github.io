@@ -1,12 +1,12 @@
 import type { Config } from 'prettier'
 
-import { data as helloWorld } from './hello-world'
 import { data as closure } from './closure'
-import { data as thisRef } from './this-ref'
-import { data as proto } from './proto'
 import { data as fibonacci } from './fibonacci'
+import { data as helloWorld } from './hello-world'
 import { data as isPrime } from './is-prime'
+import { data as proto } from './proto'
 import { data as quickSort } from './quick-sort'
+import { data as thisRef } from './this-ref'
 
 export type Char = { char?: string; className?: string[]; child?: Char }
 

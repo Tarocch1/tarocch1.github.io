@@ -12,15 +12,16 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, shallowRef, onMounted, nextTick } from 'vue'
 import { cloneDeep } from 'lodash-es'
+import { nextTick, onMounted, ref, shallowRef } from 'vue'
+
+import { TITLE_ALL_APPEARED } from '../../utils/event'
+import { formatCode } from '../../utils/prettier'
+import { sleep } from '../../utils/sleep'
 
 import CodeBlock from './CodeBlock.vue'
+import { type Data, datas } from './data'
 import Result from './Result.vue'
-import { datas, type Data } from './data'
-import { sleep } from '../../utils/sleep'
-import { formatCode } from '../../utils/prettier'
-import { TITLE_ALL_APPEARED } from '../../utils/event'
 
 // 当前渲染第几组数据
 const cur = ref(0)

@@ -1,8 +1,9 @@
-import type { Config } from 'prettier'
-import { format } from 'prettier/standalone'
-import * as prettierPluginBabel from 'prettier/plugins/babel'
-import * as prettierPluginEstree from 'prettier/plugins/estree'
 import { PrettierOptions } from '@tarocch1/eslint-config/prettier'
+import type { Config } from 'prettier'
+import * as prettierPluginBabel from 'prettier/plugins/babel'
+// eslint-disable-next-line import-x/namespace
+import * as prettierPluginEstree from 'prettier/plugins/estree'
+import { format } from 'prettier/standalone'
 
 const defaultConfig: Config = {
   ...PrettierOptions,

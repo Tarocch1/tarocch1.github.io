@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick } from 'vue'
+import { nextTick, ref } from 'vue'
 
 import Loading from './Loading.vue'
 

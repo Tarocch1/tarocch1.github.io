@@ -21,8 +21,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, watch } from 'vue'
 import { findLastIndex } from 'lodash-es'
+import { computed, ref, watch } from 'vue'
 
 import { highlightCode } from '../../utils/shiki'
 

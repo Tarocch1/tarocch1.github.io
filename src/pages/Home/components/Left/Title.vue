@@ -34,10 +34,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, computed, watch } from 'vue'
+import { computed, reactive, ref, watch } from 'vue'
+
+import { TITLE_ALL_APPEARED } from '../../utils/event'
 
 import Tags from './Tags.vue'
-import { TITLE_ALL_APPEARED } from '../../utils/event'
 
 const props = defineProps<{ title: string }>()
 

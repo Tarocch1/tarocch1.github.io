@@ -15,9 +15,9 @@
 </template>
 
 <script lang="ts" setup>
+import Links from './Links.vue'
 import Tags from './Tags.vue'
 import Title from './Title.vue'
-import Links from './Links.vue'
 
 const title = "Hi 👋,\nI'm Tarocch1,\nweb developer."
 

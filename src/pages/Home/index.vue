@@ -13,11 +13,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, onMounted, onBeforeUnmount, useTemplateRef } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, useTemplateRef } from 'vue'
 
+import Kid from './components/Kid/index.vue'
 import Left from './components/Left/index.vue'
 import Right from './components/Right/index.vue'
-import Kid from './components/Kid/index.vue'
 
 const leftElement = useTemplateRef('left')
 // 左侧元素的宽度
