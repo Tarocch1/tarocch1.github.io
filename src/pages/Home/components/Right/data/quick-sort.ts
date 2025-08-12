@@ -22,8 +22,9 @@ export const data: Data[] = [
     `,
     fn(ctx) {
       function quickSort(arr: number[]): number[] {
-        if (arr.length < 2)
+        if (arr.length < 2) {
           return arr
+        }
         const p = arr[0]
         const [lo, hi] = arr.slice(1).reduce(
           (acc, val) => {
