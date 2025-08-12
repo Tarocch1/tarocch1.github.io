@@ -15,9 +15,8 @@
           :style="{
             animationDelay: allAppeared ? undefined : `${index * 100}ms`,
           }"
+          class="char animated"
           :class="{
-            char: true,
-            animated: true,
             rubberBand: allAppeared && hovered[index],
           }"
           @mouseenter="hovered[index] = true"
@@ -25,7 +24,7 @@
         >
           {{ char === ' ' ? '&nbsp;' : char }}
         </span>
-        <br v-else />
+        <br v-else>
       </template>
     </TransitionGroup>
   </h1>
@@ -37,10 +36,11 @@
 import { computed, reactive, ref, watch } from 'vue'
 
 import { TITLE_ALL_APPEARED } from '../../utils/event'
-
 import Tags from './Tags.vue'
 
-const props = defineProps<{ title: string }>()
+const props = defineProps<{
+  title: string
+}>()
 
 // 记录已出现的字符数量
 const appeared = ref(0)

@@ -10,7 +10,7 @@ export const data: Data[] = [
         return \`Hi 👋, I'm \${this.name}.\`
       }
     `,
-    fn: function (ctx) {
+    fn(ctx) {
       function Person() {}
       Person.prototype.hi = function () {
         return `Hi 👋, I'm ${this.name}.`
@@ -26,9 +26,9 @@ export const data: Data[] = [
       }
       Me.prototype = new Person()
     `,
-    fn: function (ctx) {
+    fn(ctx) {
       function Me(name: string) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // eslint-disable-next-line ts/ban-ts-comment
         // @ts-ignore
         this.name = name
       }
@@ -38,8 +38,8 @@ export const data: Data[] = [
   },
   {
     component: 'CodeBlock',
-    content: "const me = new Me('Tarocch1')",
-    fn: function (ctx) {
+    content: 'const me = new Me(\'Tarocch1\')',
+    fn(ctx) {
       ctx.me = new ctx.Me('Tarocch1')
     },
   },
@@ -47,7 +47,7 @@ export const data: Data[] = [
   {
     component: 'Result',
     content: '',
-    fn: function (ctx) {
+    fn(ctx) {
       return ctx.me.hi()
     },
     prettier: false,

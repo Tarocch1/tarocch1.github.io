@@ -15,12 +15,13 @@
 import { cloneDeep } from 'lodash-es'
 import { nextTick, onMounted, ref, shallowRef } from 'vue'
 
+import type { Data } from './data'
+
 import { TITLE_ALL_APPEARED } from '../../utils/event'
 import { formatCode } from '../../utils/prettier'
 import { sleep } from '../../utils/sleep'
-
 import CodeBlock from './CodeBlock.vue'
-import { type Data, datas } from './data'
+import { datas } from './data'
 import Result from './Result.vue'
 
 // 当前渲染第几组数据
@@ -28,13 +29,12 @@ const cur = ref(0)
 // 已经渲染的数据
 const dataToRender = ref<Data[]>([])
 // 渲染所需的上下文
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ctx = shallowRef<Record<string, any>>({})
 
 /**
  * 渲染下一条数据
  */
-const next = async () => {
+async function next() {
   // 要渲染的数据集合
   const data = datas[cur.value]
 
@@ -49,7 +49,8 @@ const next = async () => {
       const dataItem = await prepareData(datas[cur.value][0])
       dataToRender.value.push(dataItem)
     })
-  } else {
+  }
+  else {
     // 渲染下一条数据
     await sleep(500)
     const dataItem = await prepareData(data[dataToRender.value.length])
@@ -57,13 +58,13 @@ const next = async () => {
   }
 }
 
-const prepareData = async (dataItem: Data) => {
+async function prepareData(dataItem: Data) {
   const _dataItem = cloneDeep(dataItem)
   if (typeof _dataItem.fn === 'function') {
     _dataItem.content = _dataItem.fn(ctx.value) ?? _dataItem.content
   }
-  _dataItem.content =
-    _dataItem.prettier !== false
+  _dataItem.content
+    = _dataItem.prettier !== false
       ? await formatCode(_dataItem.content, _dataItem.prettier)
       : _dataItem.content
   return _dataItem

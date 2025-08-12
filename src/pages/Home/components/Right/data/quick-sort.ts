@@ -20,9 +20,10 @@ export const data: Data[] = [
         return [...quickSort(lo), p, ...quickSort(hi)]
       }
     `,
-    fn: function (ctx) {
+    fn(ctx) {
       function quickSort(arr: number[]): number[] {
-        if (arr.length < 2) return arr
+        if (arr.length < 2)
+          return arr
         const p = arr[0]
         const [lo, hi] = arr.slice(1).reduce(
           (acc, val) => {
@@ -39,7 +40,7 @@ export const data: Data[] = [
   {
     component: 'CodeBlock',
     content: '',
-    fn: function (ctx) {
+    fn(ctx) {
       const array = Array.from({ length: 10 }).map(() => random(0, 100))
       ctx.array = array
       return `quickSort([${array.join(', ')}])`
@@ -48,7 +49,7 @@ export const data: Data[] = [
   {
     component: 'Result',
     content: '',
-    fn: function (ctx) {
+    fn(ctx) {
       const result = ctx.quickSort(ctx.array)
       return `[${result.join(', ')}]`
     },

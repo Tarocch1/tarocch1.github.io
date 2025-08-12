@@ -22,7 +22,9 @@
 <script lang="ts" setup>
 import Tags from './Tags.vue'
 
-const props = defineProps<{ links: { title: string; url: string }[] }>()
+const props = defineProps<{
+  links: { title: string, url: string }[]
+}>()
 </script>
 
 <style scoped>

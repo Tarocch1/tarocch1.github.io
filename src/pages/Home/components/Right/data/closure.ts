@@ -15,7 +15,7 @@ export const data: Data[] = [
         }
       }
     `,
-    fn: function (ctx) {
+    fn(ctx) {
       function Counter(start: number) {
         let value = start
         return {
@@ -31,7 +31,7 @@ export const data: Data[] = [
   {
     component: 'CodeBlock',
     content: 'const counter = Counter(0)',
-    fn: function (ctx) {
+    fn(ctx) {
       ctx.counter = ctx.Counter(0)
     },
   },
@@ -39,7 +39,7 @@ export const data: Data[] = [
   {
     component: 'Result',
     content: '',
-    fn: function (ctx) {
+    fn(ctx) {
       return `${ctx.counter.get()}`
     },
     prettier: false,
@@ -48,7 +48,7 @@ export const data: Data[] = [
   {
     component: 'Result',
     content: '',
-    fn: function (ctx) {
+    fn(ctx) {
       return `${ctx.counter.increment()}`
     },
     prettier: false,
@@ -57,7 +57,7 @@ export const data: Data[] = [
   {
     component: 'Result',
     content: '',
-    fn: function (ctx) {
+    fn(ctx) {
       return `${ctx.counter.increment()}`
     },
     prettier: false,
@@ -66,7 +66,7 @@ export const data: Data[] = [
   {
     component: 'Result',
     content: '',
-    fn: function (ctx) {
+    fn(ctx) {
       return `${ctx.counter.decrement()}`
     },
     prettier: false,
@@ -75,7 +75,7 @@ export const data: Data[] = [
   {
     component: 'Result',
     content: '',
-    fn: function (ctx) {
+    fn(ctx) {
       return `${ctx.counter.reset()}`
     },
     prettier: false,

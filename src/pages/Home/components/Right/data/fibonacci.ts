@@ -13,7 +13,7 @@ export const data: Data[] = [
         )
       }
     `,
-    fn: function (ctx) {
+    fn(ctx) {
       function fibonacci(n: number) {
         return Array.from({ length: n }).reduce(
           (acc: number[], _cur, i) =>
@@ -28,7 +28,7 @@ export const data: Data[] = [
   {
     component: 'Result',
     content: '',
-    fn: function (ctx) {
+    fn(ctx) {
       const result: number[] = ctx.fibonacci(10)
       return `[${result.join(', ')}]`
     },

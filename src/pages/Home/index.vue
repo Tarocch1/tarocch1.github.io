@@ -28,21 +28,25 @@ const leftScale = ref(1)
 const leftScaleStyle = computed(() => {
   return leftScale.value === 1
     ? {}
-    : { transform: `scale(${leftScale.value})`, 'transform-origin': 'top left' }
+    : {
+        'transform': `scale(${leftScale.value})`,
+        'transform-origin': 'top left',
+      }
 })
 
 // 获取元素的宽度
-const getWidth = (element: Element | null) => {
+function getWidth(element: Element | null) {
   return element ? element.getBoundingClientRect().width : 0
 }
 
 // 根据窗口大小调整左侧元素的缩放比例
-const autoScale = () => {
+function autoScale() {
   if (leftWidth.value > 0) {
     const targetWidth = getWidth(document.documentElement) - 24 * 2
     if (leftWidth.value > targetWidth) {
       leftScale.value = targetWidth / leftWidth.value
-    } else {
+    }
+    else {
       leftScale.value = 1
     }
   }

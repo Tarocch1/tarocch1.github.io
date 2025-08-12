@@ -8,23 +8,21 @@ import { data as proto } from './proto'
 import { data as quickSort } from './quick-sort'
 import { data as thisRef } from './this-ref'
 
-export type Char = { char?: string; className?: string[]; child?: Char }
+export interface Char { char?: string, className?: string[], child?: Char }
 
-export type Data =
+export type Data
+  = | {
+    component: 'CodeBlock'
+    content: string
+    fn?: (ctx: Record<string, any>) => string | void
+    prettier?: Config | false
+  }
   | {
-      component: 'CodeBlock'
-      content: string
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      fn?: (ctx: Record<string, any>) => string | void
-      prettier?: Config | false
-    }
-  | {
-      component: 'Result'
-      content: string
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      fn?: (ctx: Record<string, any>) => string | void
-      prettier?: Config | false
-    }
+    component: 'Result'
+    content: string
+    fn?: (ctx: Record<string, any>) => string | void
+    prettier?: Config | false
+  }
 
 export const datas = [
   helloWorld,

@@ -15,17 +15,19 @@ export const data: Data[] = [
         bar = () => this.name
       }
     `,
-    fn: function (ctx) {
+    fn(ctx) {
       class C {
         name: string
         constructor(name: string) {
           this.name = name
         }
+
         foo = function () {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // eslint-disable-next-line ts/ban-ts-comment
           // @ts-ignore
           return this.name
         }
+
         bar = () => this.name
       }
       ctx.C = C
@@ -33,8 +35,8 @@ export const data: Data[] = [
   },
   {
     component: 'CodeBlock',
-    content: "const [a, b] = [new C('a'), new C('b')]",
-    fn: function (ctx) {
+    content: 'const [a, b] = [new C(\'a\'), new C(\'b\')]',
+    fn(ctx) {
       ;[ctx.a, ctx.b] = [new ctx.C('a'), new ctx.C('b')]
     },
   },
@@ -42,16 +44,16 @@ export const data: Data[] = [
   {
     component: 'Result',
     content: '',
-    fn: function (ctx) {
+    fn(ctx) {
       const result = [ctx.a.foo(), ctx.a.bar()]
-      return `[${result.map((s) => `'${s}'`).join(', ')}]`
+      return `[${result.map(s => `'${s}'`).join(', ')}]`
     },
     prettier: { parser: 'json' },
   },
   {
     component: 'CodeBlock',
     content: '[a.foo, a.bar] = [b.foo, b.bar]',
-    fn: function (ctx) {
+    fn(ctx) {
       ;[ctx.a.foo, ctx.a.bar] = [ctx.b.foo, ctx.b.bar]
     },
   },
@@ -59,9 +61,9 @@ export const data: Data[] = [
   {
     component: 'Result',
     content: '',
-    fn: function (ctx) {
+    fn(ctx) {
       const result = [ctx.a.foo(), ctx.a.bar()]
-      return `[${result.map((s) => `'${s}'`).join(', ')}]`
+      return `[${result.map(s => `'${s}'`).join(', ')}]`
     },
     prettier: { parser: 'json' },
   },

@@ -1,7 +1,9 @@
 <template>
   <div class="codes">
     <Loading v-if="loading" @loaded="loaded" />
-    <div v-else>{{ props.content }}</div>
+    <div v-else>
+      {{ props.content }}
+    </div>
   </div>
 </template>
 
@@ -11,14 +13,14 @@ import { nextTick, ref } from 'vue'
 import Loading from './Loading.vue'
 
 const props = defineProps<{ content: string }>()
-const emits = defineEmits<{ 'all-appeared': [] }>()
+const emits = defineEmits<{ allAppeared: [] }>()
 
 const loading = ref(true)
 
-const loaded = () => {
+function loaded() {
   loading.value = false
   nextTick(() => {
-    emits('all-appeared')
+    emits('allAppeared')
   })
 }
 </script>

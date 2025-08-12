@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <div class="kid-wrap">
-      <embed class="kid" :src="src" type="image/svg+xml" />
+      <embed class="kid" :src="src" type="image/svg+xml">
     </div>
   </Teleport>
 </template>

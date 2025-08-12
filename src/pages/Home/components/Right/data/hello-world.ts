@@ -4,7 +4,7 @@ export const data: Data[] = [
   {
     component: 'CodeBlock',
     content: '',
-    fn: function (ctx) {
+    fn(ctx) {
       ctx.text = 'Hello, World!'
       return `console.log('${ctx.text}')`
     },
@@ -12,7 +12,7 @@ export const data: Data[] = [
   {
     component: 'Result',
     content: '',
-    fn: function (ctx) {
+    fn(ctx) {
       return ctx.text
     },
     prettier: false,

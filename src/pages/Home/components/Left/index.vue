@@ -19,7 +19,7 @@ import Links from './Links.vue'
 import Tags from './Tags.vue'
 import Title from './Title.vue'
 
-const title = "Hi 👋,\nI'm Tarocch1,\nweb developer."
+const title = 'Hi 👋,\nI\'m Tarocch1,\nweb developer.'
 
 const links = [
   { title: 'GitHub', url: 'https://github.com/Tarocch1' },

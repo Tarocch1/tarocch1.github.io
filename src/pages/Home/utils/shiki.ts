@@ -10,7 +10,7 @@ const highlighter = createHighlighterCoreSync({
 })
 
 /** 使用 shiki 进行代码高亮 */
-export const highlightCode = (code: string) => {
+export function highlightCode(code: string) {
   const result = highlighter.codeToTokens(code, {
     lang: 'js',
     theme: 'github-dark',

@@ -17,7 +17,7 @@ export const data: Data[] = [
         return num >= 2
       }
     `,
-    fn: function (ctx) {
+    fn(ctx) {
       function isPrime(num: number) {
         const boundary = Math.floor(Math.sqrt(num))
         for (let i = 2; i <= boundary; i++) {
@@ -33,7 +33,7 @@ export const data: Data[] = [
   {
     component: 'CodeBlock',
     content: '',
-    fn: function (ctx) {
+    fn(ctx) {
       ctx.num = random(1, 100)
       return `isPrime(${ctx.num})`
     },
@@ -41,7 +41,7 @@ export const data: Data[] = [
   {
     component: 'Result',
     content: '',
-    fn: function (ctx) {
+    fn(ctx) {
       return `${ctx.isPrime(ctx.num)}`
     },
     prettier: false,

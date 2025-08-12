@@ -19,7 +19,7 @@ const iteration = 4
 
 const text = ref('')
 
-const start = async function () {
+async function start() {
   const gap = duration / states.length
   let cur = 0
   let cycle = 1

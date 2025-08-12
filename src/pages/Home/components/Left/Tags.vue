@@ -11,15 +11,18 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps<{ codes: string[] }>()
+const props = defineProps<{
+  codes: string[]
+}>()
 
 /** 计算 marginLeft */
-const ml = function (code: string): string {
+function ml(code: string): string {
   let indent = 0
   for (const char of code) {
     if (char === ' ') {
       indent++
-    } else {
+    }
+    else {
       break
     }
   }
