@@ -7,7 +7,7 @@ catalog:
   '@vitejs/plugin-vue': ^6.0.1
   '@vue/tsconfig': ^0.8.1
   animate.css: ^4.1.1
-  eslint: ^9.34.0
+  eslint: ^9.37.0
   husky: ^9.1.7
   lint-staged: ^16.1.5
   lodash-es: ^4.17.21
