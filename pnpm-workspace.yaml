@@ -1,5 +1,5 @@
 catalog:
-  '@antfu/eslint-config': ^5.4.1
+  '@antfu/eslint-config': ^6.1.0
   '@tailwindcss/vite': ^4.1.15
   '@tarocch1/eslint-config': ^4.0.1
   '@types/lodash-es': ^4.17.12
