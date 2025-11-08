@@ -1,22 +1,23 @@
 catalog:
-  '@antfu/eslint-config': ^5.4.1
-  '@tailwindcss/vite': ^4.1.16
-  '@tarocch1/eslint-config': ^4.0.1
+  '@antfu/eslint-config': ^6.2.0
+  '@tailwindcss/vite': ^4.1.17
+  '@tarocch1/eslint-config': ^4.2.0
   '@types/lodash-es': ^4.17.12
   '@types/node': ^24.10.0
   '@vitejs/plugin-vue': ^6.0.1
   '@vue/tsconfig': ^0.8.1
   animate.css: ^4.1.1
-  eslint: ^9.39.0
+  eslint: ^9.39.1
   husky: ^9.1.7
   lint-staged: ^16.2.6
   lodash-es: ^4.17.21
   prettier: ^3.6.2
-  shiki: ^3.14.0
-  tailwindcss: ^4.1.16
+  prettier-plugin-lint-md: ^1.0.1
+  shiki: ^3.15.0
+  tailwindcss: ^4.1.17
   typescript: ^5.9.3
-  vite: ^7.1.12
-  vue: ^3.5.22
+  vite: ^7.2.2
+  vue: ^3.5.24
   vue-router: ^4.6.3
 
 catalogMode: strict
