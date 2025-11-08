@@ -13,8 +13,8 @@ catalogs:
       specifier: ^4.1.17
       version: 4.1.17
     '@tarocch1/eslint-config':
-      specifier: ^4.2.0
-      version: 4.2.0
+      specifier: ^4.2.2
+      version: 4.2.2
     '@types/lodash-es':
       specifier: ^4.17.12
       version: 4.17.12
@@ -101,7 +101,7 @@ importers:
         version: 4.1.17(vite@7.2.2(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
       '@tarocch1/eslint-config':
         specifier: 'catalog:'
-        version: 4.2.0(@vue/compiler-sfc@3.5.24)(typescript@5.9.3)
+        version: 4.2.2(@antfu/eslint-config@6.2.0(@vue/compiler-sfc@3.5.24)(eslint-plugin-format@1.0.2(eslint@9.39.1(jiti@2.6.1)))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.1(jiti@2.6.1))(prettier-plugin-lint-md@1.0.1(prettier@3.6.2))
       '@types/lodash-es':
         specifier: 'catalog:'
         version: 4.17.12
@@ -757,8 +757,12 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7
 
-  '@tarocch1/eslint-config@4.2.0':
-    resolution: {integrity: sha512-J1z25rHINMB9vHrz7ZrntTvgTxpVwQziX582JMliZRBPWr6szaC3g5nmRMSW6E7tUM0krqaUJAYD9J4/CuDzKw==}
+  '@tarocch1/eslint-config@4.2.2':
+    resolution: {integrity: sha512-nYvLQeOsFz+lWHW1Tql2y2ZFhhpKoaqGE0VZSl7C6Cvx4G/cAbr4PML6ULMtirnMeKky3z8ALifuibLIhd1DgQ==}
+    peerDependencies:
+      '@antfu/eslint-config': 6.x
+      eslint: 9.x
+      prettier-plugin-lint-md: 1.x
 
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
@@ -1131,8 +1135,8 @@ packages:
     resolution: {integrity: sha512-uIFDxqpRZGZ6ThOk84hEfqWoHx2devRFvpTZcTHur85vImfaxUbTW9Ryh4CpCuDnToOP1CEtXKIgytHBPVff5A==}
     engines: {node: '>=0.3.1'}
 
-  electron-to-chromium@1.5.248:
-    resolution: {integrity: sha512-zsur2yunphlyAO4gIubdJEXCK6KOVvtpiuDfCIqbM9FjcnMYiyn0ICa3hWfPr0nc41zcLWobgy1iL7VvoOyA2Q==}
+  electron-to-chromium@1.5.249:
+    resolution: {integrity: sha512-5vcfL3BBe++qZ5kuFhD/p8WOM1N9m3nwvJPULJx+4xf2usSlZFJ0qoNYO2fOX4hi3ocuDcmDobtA+5SFr4OmBg==}
 
   emoji-regex@10.6.0:
     resolution: {integrity: sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==}
@@ -3059,7 +3063,7 @@ snapshots:
       tailwindcss: 4.1.17
       vite: 7.2.2(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)
 
-  '@tarocch1/eslint-config@4.2.0(@vue/compiler-sfc@3.5.24)(typescript@5.9.3)':
+  '@tarocch1/eslint-config@4.2.2(@antfu/eslint-config@6.2.0(@vue/compiler-sfc@3.5.24)(eslint-plugin-format@1.0.2(eslint@9.39.1(jiti@2.6.1)))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.1(jiti@2.6.1))(prettier-plugin-lint-md@1.0.1(prettier@3.6.2))':
     dependencies:
       '@antfu/eslint-config': 6.2.0(@vue/compiler-sfc@3.5.24)(eslint-plugin-format@1.0.2(eslint@9.39.1(jiti@2.6.1)))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       eslint: 9.39.1(jiti@2.6.1)
@@ -3067,27 +3071,6 @@ snapshots:
       jiti: 2.6.1
       prettier: 3.6.2
       prettier-plugin-lint-md: 1.0.1(prettier@3.6.2)
-    transitivePeerDependencies:
-      - '@eslint-react/eslint-plugin'
-      - '@eslint/json'
-      - '@next/eslint-plugin-next'
-      - '@prettier/plugin-xml'
-      - '@unocss/eslint-plugin'
-      - '@vue/compiler-sfc'
-      - astro-eslint-parser
-      - eslint-plugin-astro
-      - eslint-plugin-jsx-a11y
-      - eslint-plugin-react-hooks
-      - eslint-plugin-react-refresh
-      - eslint-plugin-solid
-      - eslint-plugin-svelte
-      - eslint-plugin-vuejs-accessibility
-      - prettier-plugin-astro
-      - prettier-plugin-slidev
-      - supports-color
-      - svelte-eslint-parser
-      - typescript
-      - vitest
 
   '@types/debug@4.1.12':
     dependencies:
@@ -3357,7 +3340,7 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.8.25
       caniuse-lite: 1.0.30001754
-      electron-to-chromium: 1.5.248
+      electron-to-chromium: 1.5.249
       node-releases: 2.0.27
       update-browserslist-db: 1.1.4(browserslist@4.27.0)
 
@@ -3459,7 +3442,7 @@ snapshots:
 
   diff@5.2.0: {}
 
-  electron-to-chromium@1.5.248: {}
+  electron-to-chromium@1.5.249: {}
 
   emoji-regex@10.6.0: {}
 
