@@ -3,7 +3,7 @@ catalog:
   '@tailwindcss/vite': ^4.1.17
   '@tarocch1/eslint-config': ^4.2.2
   '@types/lodash-es': ^4.17.12
-  '@types/node': ^24.10.0
+  '@types/node': ^24.10.1
   '@vitejs/plugin-vue': ^6.0.1
   '@vue/tsconfig': ^0.8.1
   animate.css: ^4.1.1
