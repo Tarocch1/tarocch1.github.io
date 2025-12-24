@@ -1,5 +1,5 @@
 catalog:
-  '@antfu/eslint-config': ^6.7.1
+  '@antfu/eslint-config': ^6.7.3
   '@tailwindcss/vite': ^4.1.18
   '@tarocch1/eslint-config': ^4.2.2
   '@types/lodash-es': ^4.17.12
@@ -10,14 +10,14 @@ catalog:
   eslint: ^9.39.2
   husky: ^9.1.7
   lint-staged: ^16.2.7
-  lodash-es: ^4.17.21
+  lodash-es: ^4.17.22
   prettier: ^3.7.4
   prettier-plugin-lint-md: ^1.0.1
   shiki: ^3.20.0
   tailwindcss: ^4.1.18
   typescript: ^5.9.3
   vite: ^7.3.0
-  vue: ^3.5.25
+  vue: ^3.5.26
   vue-router: ^4.6.4
 
 catalogMode: strict
