@@ -13,7 +13,7 @@ catalog:
   eslint: ^9.39.2
   husky: ^9.1.7
   lint-staged: ^16.2.7
-  lodash-es: ^4.17.22
+  lodash-es: ^4.17.23
   prettier: ^3.8.0
   prettier-plugin-lint-md: ^1.0.1
   shiki: ^3.21.0
