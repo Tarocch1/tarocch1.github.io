@@ -2,7 +2,7 @@ catalogMode: strict
 shellEmulator: true
 trustPolicy: no-downgrade
 catalog:
-  '@antfu/eslint-config': ^7.4.3
+  '@antfu/eslint-config': ^7.6.0
   '@tailwindcss/vite': ^4.2.1
   '@tarocch1/eslint-config': ^4.3.0
   '@types/lodash-es': ^4.17.12
@@ -10,7 +10,7 @@ catalog:
   '@vitejs/plugin-vue': ^6.0.4
   '@vue/tsconfig': ^0.8.1
   animate.css: ^4.1.1
-  eslint: ^10.0.1
+  eslint: ^10.0.2
   husky: ^9.1.7
   lint-staged: ^16.2.7
   lodash-es: ^4.17.23
@@ -20,5 +20,5 @@ catalog:
   tailwindcss: ^4.2.1
   typescript: ^5.9.3
   vite: ^7.3.1
-  vue: ^3.5.28
+  vue: ^3.5.29
   vue-router: ^5.0.3
