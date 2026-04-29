@@ -19,6 +19,6 @@ catalog:
   shiki: ^4.0.2
   tailwindcss: ^4.2.4
   typescript: ^6.0.3
-  vite: ^8.0.9
-  vue: ^3.5.32
-  vue-router: ^5.0.4
+  vite: ^8.0.10
+  vue: ^3.5.33
+  vue-router: ^5.0.6
