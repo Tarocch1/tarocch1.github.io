@@ -15,6 +15,6 @@ const defaultConfig: Config = {
 export async function formatCode(source: string, config: Config = {}) {
   const cfg = { ...defaultConfig, ...config }
   const code = await format(source, cfg)
-  // eslint-disable-next-line e18e/prefer-static-regex
+
   return code.trim().replace(/^;/, '') // 去掉开头的分号
 }
