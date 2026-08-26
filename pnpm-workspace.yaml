@@ -10,7 +10,7 @@ catalog:
   '@vitejs/plugin-vue': ^6.0.8
   '@vue/tsconfig': ^0.9.1
   animate.css: ^4.1.1
-  eslint: ^10.8.1
+  eslint: ^10.9.0
   husky: ^9.1.7
   lint-staged: ^17.3.0
   lodash-es: ^4.18.1
@@ -19,6 +19,6 @@ catalog:
   shiki: ^4.4.2
   tailwindcss: ^4.3.3
   typescript: ^6.0.3
-  vite: ^8.2.1
+  vite: ^8.2.2
   vue: ^3.5.41
   vue-router: ^5.2.0
